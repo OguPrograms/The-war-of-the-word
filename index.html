@@ -8,6 +8,38 @@
     <script src="script/script.js" defer></script> <!-- Enlace a un archivo JavaScript -->
 </head>
 <body>
-    <h1>THE WAR OF THE WORD</h1>
+    <!-- Displays who is playing -->
+    <div class="player-tourn" id="player-tourn">
+        <p class="player-tourn__player">P<label id="player-tourn__player"></label></p>
+        <p>TURN</p>
+    </div>
+
+    <!-- MENU PAGE -->
+    <div id="menu" class="menu">
+        <h1>THE WAR OF THE WORD</h1>
+        <div>
+            <button class="menu__button" id="menu__play-alone" onclick="RandomWord()">PLAY ALONE</button>
+            <button class="menu__button" id="menu__multiplayer" onclick="WordPage()">MULTIPLAYER</button>
+        </div>
+        <div class="menu__credits">
+            <div>
+                <p>Programed by: </p>
+                <p>Ogu</p>
+            </div>
+            <div>
+                <p>Designed by:</p>
+                <p>Guillem</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SELECT WORD PAGE-->
+    <div class="select-word" id="select-word">
+        <h1>CHOOSE YOUR WORD</h1>
+        <div>
+            <input type="password" id="word">
+            <button id="select-word__play" onclick="CheckWord()">PLAY</button>
+        </div>
+    </div>
 </body>
 </html>

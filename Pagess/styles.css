@@ -1,0 +1,66 @@
+body{
+    background-color: brown;
+    height: 100svh;
+}
+
+/* Player Tourn */
+.player-tourn{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+
+    top: 30px;
+    left: 10px;
+
+    font-size: 15px;
+    line-height: 10px;
+
+    .player-tourn__player{
+        font-size: 50px;
+    }
+}
+
+/* MENU PAGE */
+.menu{
+    /* height: 100svh; */
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .menu__button{
+        margin: 10px;
+    }
+
+    .menu__credits{
+        display: flex;
+        position: absolute;
+        bottom: 30px;
+        text-align: center;
+        line-height: 10px;
+
+        div{
+            margin-inline: 20px;
+        }
+    }
+}
+
+/* SELECT WORD PAGE */
+.select-word{
+    /* height: 100svh; */
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
