@@ -1,0 +1,22 @@
+body{
+    background-color: brown;
+    height: 100svh;
+}
+
+/* Player Tourn */
+.player-tourn{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+
+    top: 30px;
+    left: 10px;
+
+    font-size: 15px;
+    line-height: 10px;
+
+    .player-tourn__player{
+        font-size: 50px;
+    }
+}

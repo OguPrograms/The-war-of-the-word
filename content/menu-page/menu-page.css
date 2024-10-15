@@ -1,0 +1,28 @@
+/* MENU PAGE */
+.menu{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .menu__button{
+        margin: 10px;
+    }
+
+    .menu__credits{
+        display: flex;
+        position: absolute;
+        bottom: 30px;
+        text-align: center;
+        line-height: 10px;
+
+        div{
+            margin-inline: 20px;
+        }
+    }
+}
