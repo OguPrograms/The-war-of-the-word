@@ -1,6 +1,8 @@
 body{
-    background-color: brown;
+    /* background-color: beige; */
     height: 100svh;
+    position: relative;
+    margin: 0px;
 }
 
 /* Player Tourn */

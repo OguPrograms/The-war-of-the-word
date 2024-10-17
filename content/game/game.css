@@ -10,3 +10,8 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
+
+.game__background{
+    width: 200vw;
+    height: auto;
+}
