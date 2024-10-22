@@ -1,0 +1,113 @@
+body{
+    background-color: rgb(185, 185, 185);
+    font-family: SegoePrint, 'Segoe Print';
+    height: 100svh;
+    margin: 0px;
+}
+
+/* Player Tourn */
+.player-tourn{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+
+    top: 30px;
+    left: 10px;
+
+    font-size: 15px;
+    line-height: 10px;
+
+    .player-tourn__player{
+        margin-bottom: 10px;
+        margin-top: 0px;
+        font-size: 50px;
+    }
+}
+
+/* MENU PAGE */
+.menu{
+    /* height: 100svh; */
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .menu__button-wrapper{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu__button{
+        margin: 10px;
+        font-family: SegoePrint, 'Segoe Print';
+        font-size: 96.6px;
+        pointer-events: all;
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+
+        .menu__button-hover{
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        :hover{
+            cursor: pointer;
+            .menu__button-hover{
+                opacity: 1;
+            }
+        }
+    }
+
+    .menu__credits{
+        display: flex;
+        position: absolute;
+        bottom: 30px;
+        text-align: center;
+        line-height: 10px;
+
+        div{
+            margin-inline: 20px;
+        }
+    }
+
+}
+
+/* SELECT WORD PAGE */
+.select-word{
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/* GAME PAGE */
+.game{
+    height: 100%;
+
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    background: linear-gradient(90deg, #ffffff 0%, transparent 0%);
+    clip-path: inset(0 5% 0 0);
+}
+
+.game__word{
+    letter-spacing: 10px;
+}
