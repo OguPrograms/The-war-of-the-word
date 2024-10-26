@@ -1,12 +1,22 @@
 //FUNTIONALITY
-const abecedary = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const words = ["hello", "world"]
+const abecedary = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const words = ["HELLO", "WORLD", "HAM", "AMAZING", "HORRIBLE", "CRUISE"];
+let frame = 0;
+
+let points1 = 0;
+let points2 = 0;
+
+let gamePoints1 = 0;
+let gamePoints2 = 0;
 
 // Updathe the player tourn
 function PlayerTourn(player){
     player = (player == 1) ? 2 : 1;
     document.getElementById("player-tourn").style.display = "flex";
+    document.getElementById("player-not-tourn").style.display = "flex";
     document.getElementById("player-tourn__player").innerHTML = player.toString();
+    not_paying = player = (player == 1) ? 2 : 1;
+    document.getElementById("player-not-tourn__not-playing").innerHTML = not_paying.toString();
 }
 
 //INTERFICE
@@ -14,10 +24,10 @@ function PlayerTourn(player){
 // Viw password
 function ViewPassword(){
     if (document.getElementById("word").type == "password"){
-        document.getElementById("menu__viw-password").innerHTML = "Ocultar";
+        document.getElementById("select-word__viw-password").innerHTML = "Ocultar";
         document.getElementById("word").type = "text";
     }else{
-        document.getElementById("menu__viw-password").innerHTML = "Mostrar";
+        document.getElementById("select-word__viw-password").innerHTML = "Mostrar";
         document.getElementById("word").type = "password";
     }
 }
@@ -26,9 +36,15 @@ function ViewPassword(){
 function CheckWord(){
     word = document.getElementById("word").value;
     if(15 > word.length && word.length > 0 ){
-        Play(word, 1);
+        for (i=0; i < word.length; i++) {
+            if(!abecedary.includes(word[i].toUpperCase())){
+                alert("There are invalid character/s");
+                return;
+            }
+        }
+        Play(word.toUpperCase(), 1);
     }else{
-        alert("Enter a valid word");
+        alert("The word must be between 1 and 15 letters");
     }
 }
 
@@ -48,39 +64,86 @@ function RandomWord(){
 
 // Start the game
 function Play(word, player){
+    frame = 0;
     PlayerTourn(player);
     document.getElementById("player-tourn").style.display = "flex";
-    document.getElementById("game").style.display = "flex";
     document.getElementById("select-word").style.display = "none";
     document.getElementById("menu").style.display = "none";
-    lets_try(word, abecedary);
+    document.getElementById("animation").style.display = "none";
+
+    lets_try(word, "", "");
 }
 
 // Introduce a letter
-function lets_try(word, abecedaryButtons){
+function lets_try(word, abecedaryAccerted, abecedaryFailed){
+    document.getElementById("game").style.display = "flex";
+    document.getElementById("animation").style.display = "none";
+
     //word codified
-    abecedaryButtons="";
+    console.log(word)
     codifiedWord = "";
-    for(let i = 0; i < word.length; i++){
-        codifiedWord += "_"
+    for(i = 0; i < word.length; i++){
+        if (abecedaryAccerted.includes(word[i])){
+            codifiedWord += word[i]
+        }else{
+            codifiedWord += "_";
+        }
     }
     document.getElementById("game__word").innerHTML = codifiedWord;
 
     //butons
+    document.getElementById("game__buttons").innerHTML = ""
     for(let i = 0; i < abecedary.length; i++){
-        if (abecedaryButtons.includes(abecedary[i])){
-            document.getElementById("game__buttons").innerHTML += "<button class='game__button_disabled'>"+abecedary[i]+"</button>";
-        }else{
+        if (abecedaryAccerted.includes(abecedary[i])){
+            document.getElementById("game__buttons").innerHTML += "<button class='game__button_accerted'>"+abecedary[i]+"</button>";
+        }else if (abecedaryFailed.includes(abecedary[i])) {
+            document.getElementById("game__buttons").innerHTML += "<button class='game__button_failed' id='game__button'>"+abecedary[i]+"</button>";
+        }else {
             document.getElementById("game__buttons").innerHTML += "<button class='game__button' id='game__button'>"+abecedary[i]+"</button>";
         }
     }
+
+    GameButtonListener(word, abecedaryAccerted, abecedaryFailed);
 }
 
 // A button was clicked
-document.getElementById("game__button").addEventListener('click', (event) => {
-    if (event.target.id === 'game__buttons'){
-        alert('¡Botón clicado!');
-    }
-});
+function GameButtonListener(word, abecedaryAccerted, abecedaryFailed) {
+    const buttons = document.querySelectorAll(".game__button");
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+
+            charButton = event.target.textContent;
+
+            if (word.includes(charButton)){
+                abecedaryAccerted += charButton;
+            } else {
+                abecedaryFailed += charButton;
+            }
+
+            Animation(word, abecedaryAccerted, abecedaryFailed, charButton);
+
+        });
+    });
+}
 
 // Animation win/lose
+function Animation(word, abecedaryAccerted, abecedaryFailed, character) {
+    document.getElementById("animation").style.transform = "scale(1)"
+    document.getElementById("game").style.display = "none";
+    document.getElementById("animation").style.display = "flex";
+    document.getElementById("animation").innerHTML = "<img src='img/gameAnimation/penjat_"+frame+".jpg'>";
+
+    if (!word.includes(character)){
+        frame ++;
+    }
+    setTimeout(() => {
+        document.getElementById("animation").style.transform = "scale(1.2)"
+        setTimeout(() => {
+            document.getElementById("animation").style.transform = "scale(1.4)"
+            document.getElementById("animation").innerHTML = "<img src='img/gameAnimation/penjat_"+frame+".jpg'>";
+            setTimeout(() => {
+                lets_try(word, abecedaryAccerted, abecedaryFailed);
+            }, 1000);
+        }, 1000);
+    }, 1000);
+}

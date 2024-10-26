@@ -11,7 +11,12 @@
     <!-- Displays who is playing -->
     <div class="player-tourn" id="player-tourn">
         <p class="player-tourn__player">P<label id="player-tourn__player"></label></p>
-        <p>TURN</p>
+        <P><label class="points"></label>P</p>
+    </div>
+
+    <div class="player-not-tourn" id="player-not-tourn">
+        <p class="player-not-tourn__not-playing">P<label id="player-not-tourn__not-playing"></label></p>
+        <P><label class="points"></label>P</p>
     </div>
 
     <!-- MENU PAGE -->
@@ -57,7 +62,7 @@
     <div class="select-word" id="select-word">
         <h1>CHOOSE YOUR WORD</h1>
         <div>
-            <button id="menu__viw-password" onclick="ViewPassword()">Mostrar</button>
+            <button id="select-word__viw-password" class="select-word__viw-password" onclick="ViewPassword()"></button>
             <input type="password" id="word">
             <button id="select-word__play" onclick="CheckWord()">PLAY</button>
         </div>
@@ -70,6 +75,11 @@
         <label class="game__word" id="game__word"></label>
         <div id="game__buttons">
         </div>
+    </div>
+
+    <!-- ANIMATION PAGE -->
+    <div class="animation" id="animation">
+        <img src="img/gameAnimation/penjat_0.jpg">
     </div>
 </body>
 </html>

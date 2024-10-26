@@ -1,12 +1,15 @@
 body{
     background-color: rgb(185, 185, 185);
     font-family: SegoePrint, 'Segoe Print';
+    text-align: center;
     height: 100svh;
     margin: 0px;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
 }
 
 /* Player Tourn */
-.player-tourn{
+.player-tourn {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -22,6 +25,25 @@ body{
         margin-bottom: 10px;
         margin-top: 0px;
         font-size: 50px;
+    }
+}
+
+.player-not-tourn{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+
+    top: 20px;
+    right: 10px;
+
+    font-size: 10px;
+    line-height: 10px;
+
+    .player-not-tourn__not-playing{
+        margin-bottom: 10px;
+        margin-top: 0px;
+        font-size: 30px;
     }
 }
 
@@ -89,6 +111,12 @@ body{
     position: relative;
     flex-wrap: wrap;
     flex-direction: column;
+
+    .select-word__viw-pasword{
+        pointer-events: all;
+        stroke-miterlimit: 10;
+        /* stroke-width: 5px; */
+    }
 }
 
 /* GAME PAGE */
@@ -106,8 +134,44 @@ body{
 
     background: linear-gradient(90deg, #ffffff 0%, transparent 0%);
     clip-path: inset(0 5% 0 0);
+
+    .game__word{
+        letter-spacing: 10px;
+    }
+
+    #game__buttons{
+        display: flex;
+
+        
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 500px;
+
+        max-height: 80%;
+
+        padding-inline: 20px;
+        margin-top: 40px;
+
+        button{
+            margin: 5px;
+        }
+    }
+
+    .game__button_accerted{
+        background-color: greenyellow;
+    }
+
+    .game__button_failed{
+        background-color: red;
+    }
 }
 
-.game__word{
-    letter-spacing: 10px;
+
+/* AMIMATION PAGE */
+.animation{
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
