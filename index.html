@@ -11,12 +11,14 @@
     <!-- Displays who is playing -->
     <div class="player-tourn" id="player-tourn">
         <p class="player-tourn__player">P<label id="player-tourn__player"></label></p>
-        <P><label class="points"></label>P</p>
+        <P><label id="pointsPlayer" class="points">0</label> P</p>
+        <div id="pointsPlayerAdd"></div>
     </div>
 
     <div class="player-not-tourn" id="player-not-tourn">
-        <p class="player-not-tourn__not-playing">P<label id="player-not-tourn__not-playing"></label></p>
-        <P><label class="points"></label>P</p>
+        <p class="player-not-tourn__not-playing"><label id="player-not-tourn__not-playing"></label></p>
+        <P><label id="pointsNotPlaying" class="points">0</label> P</p>
+        <div id="pointsNotPlayingAdd"></div>
     </div>
 
     <!-- MENU PAGE -->
@@ -61,8 +63,10 @@
     <!-- SELECT WORD PAGE-->
     <div class="select-word" id="select-word">
         <h1>CHOOSE YOUR WORD</h1>
-        <div>
-            <button id="select-word__viw-password" class="select-word__viw-password" onclick="ViewPassword()"></button>
+        <div class="select-word__wrapper">
+            <div id="select-word__viw-password" class="select-word__viw-password" onclick="ViewPassword()">
+                <img class="select-word__umbrella" src="img/umbrella/umbrellaClose.png"></img>
+            </div>
             <input type="password" id="word">
             <button id="select-word__play" onclick="CheckWord()">PLAY</button>
         </div>
@@ -71,7 +75,6 @@
     <!-- GAME PAGE -->
     <div class="game" id="game">
         <h1>THE WAR OF THE WORD</h1>
-        <picture></picture>
         <label class="game__word" id="game__word"></label>
         <div id="game__buttons">
         </div>
@@ -80,6 +83,28 @@
     <!-- ANIMATION PAGE -->
     <div class="animation" id="animation">
         <img src="img/gameAnimation/penjat_0.jpg">
+    </div>
+
+    <!-- RESULTS PAGE -->
+    <div class="results" id="results">
+        <h1><label id="results__word">word</label></h1>
+        <div class="results__wrapper">
+            <div class="results__player">
+                <h1>P1</h1>
+                <h1>Round points: <label id="results__round-1">a</label></h1>
+                <h1>Total points: <label id="results__total-1">a</label></h1>
+                <h1>Wins: <label id="results__wins-1">a</label></h1>
+                <h1>Best Round: <label id="results__best-1">a</label></h1>
+            </div>
+            <div class="results__player">
+                <h1><label id="results__player-bot"></label></h1>
+                <h1>Round points: <label id="results__round-2">a</label></h1>
+                <h1>Total points: <label id="results__total-2">a</label></h1>
+                <h1>Wins: <label id="results__wins-2">a</label></h1>
+                <h1>Best Round: <label id="results__best-2">a</label></h1>
+            </div>
+        </div>
+        <button class="results__continue" onclick="PlayAgain()"><label>Continue</button>
     </div>
 </body>
 </html>

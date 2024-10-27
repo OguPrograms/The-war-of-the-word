@@ -47,6 +47,22 @@ body{
     }
 }
 
+.pointsNotPlayingAdd, .pointsPlayerAdd{
+    opacity: 0;
+    animation: addPoints 3s forwards;
+}
+
+@keyframes addPoints {
+    0% {
+        transform: translateY(20);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
 /* MENU PAGE */
 .menu{
     /* height: 100svh; */
@@ -112,11 +128,20 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
 
-    .select-word__viw-pasword{
-        pointer-events: all;
-        stroke-miterlimit: 10;
-        /* stroke-width: 5px; */
+    .select-word__wrapper{
+        display: flex;
+        align-items: center;
     }
+
+    .select-word__wrapper > *{
+        margin: 10px;
+    }
+
+    .select-word__umbrella{
+        cursor: pointer;
+        height: 80px;
+    }
+
 }
 
 /* GAME PAGE */
@@ -174,4 +199,21 @@ body{
     display: none;
     align-items: center;
     justify-content: center;
+}
+
+/* RESULTS PAGE */
+.results{
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .results__wrapper{
+        display: flex;
+    }
+    .results__player{
+        margin-inline: 100px;
+    }
 }
